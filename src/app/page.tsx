@@ -19,8 +19,6 @@ export default function HomePage() {
           <nav className="main-nav" aria-label="Primary navigation">
             <Link href="#projects">Projects</Link>
             <Link href="/product">Product</Link>
-            <Link href="#how-i-work">How I work</Link>
-            <Link href="#experience">Experience</Link>
             <Link href="#about">About</Link>
             <Link href="#contact">Contact</Link>
           </nav>
@@ -36,8 +34,9 @@ export default function HomePage() {
         <section className="hero section">
           <div className="container hero-grid">
             <div className="hero-copy">
+              <span className="hero-monogram" aria-hidden="true">du/</span>
               <p className="eyebrow">
-                <span aria-hidden="true">01</span> build / profile
+                <span aria-hidden="true">01</span> David Udeji · Frontend Engineer
               </p>
               <h1>
                 I build whole systems,
@@ -72,40 +71,6 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-
-            <aside className="hero-panel" aria-label="Build log summary">
-              <div className="panel-header">
-                <span className="eyebrow eyebrow--small">
-                  <span aria-hidden="true">02</span> build log / active
-                </span>
-              </div>
-
-              <div className="panel-body">
-                <div className="panel-stat">
-                  <span className="panel-stat__label">role</span>
-                  <strong>{profile.role}</strong>
-                </div>
-                <div className="panel-stat">
-                  <span className="panel-stat__label">last build</span>
-                  <strong>Fintra</strong>
-                </div>
-                <div className="panel-stat panel-stat--accent">
-                  <span className="panel-stat__label">shipping</span>
-                  <strong>3 systems</strong>
-                </div>
-              </div>
-
-              <div className="build-grid" aria-hidden="true">
-                <span className="build-grid__dot build-grid__dot--active" />
-                <span className="build-grid__dot" />
-                <span className="build-grid__dot" />
-                <span className="build-grid__dot build-grid__dot--active" />
-                <span className="build-grid__dot" />
-                <span className="build-grid__dot build-grid__dot--active" />
-                <span className="build-grid__dot" />
-                <span className="build-grid__dot" />
-              </div>
-            </aside>
           </div>
         </section>
 
