@@ -1,5 +1,6 @@
 import centrifugeImage from '../../images/centrifuge-hero.jpg';
 import logisticsImage from '../../images/logistics-invoice.png';
+import schaidImage from '../../images/schaid-dashboard.png';
 
 export const navItems = [
   { label: 'Home', href: '#hero' },
@@ -17,7 +18,7 @@ export const projectData = [
     tag: 'Education technology',
     title: 'Schaid ERP',
     contribution: 'School management platform for higher education',
-    image: null,
+    image: schaidImage,
     description:
       'A school ERP platform presented for universities and polytechnics, bringing academic and administrative modules together.',
     technologies: [],

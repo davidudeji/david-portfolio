@@ -1,5 +1,6 @@
 import centrifugeImage from '../../images/centrifuge-hero.jpg';
 import logisticsImage from '../../images/logistics-invoice.png';
+import schaidImage from '../../images/schaid-dashboard.png';
 
 export const caseStudies = [
   {
@@ -10,8 +11,8 @@ export const caseStudies = [
     summary: 'A school management platform presented for universities and polytechnics.',
     role: 'Project contributor',
     technologies: [],
-    heroImage: null,
-    imageAlt: '',
+    heroImage: schaidImage,
+    imageAlt: 'Schaid ERP course and curriculum dashboard',
     liveUrl: 'https://schaid.vercel.app/',
     overview:
       'The Schaid public website describes an ERP platform for African universities and polytechnics. Its product messaging brings admissions, academics, HR, finance, and communication into one institution-focused platform. This summary reflects the public site; implementation details have not been independently verified.',
