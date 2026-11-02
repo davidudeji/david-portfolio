@@ -1,18 +1,58 @@
 import { useEffect, useState } from 'react';
+import {
+  Accessibility,
+  Atom,
+  BrainCircuit,
+  Code2,
+  Database,
+  GitBranch,
+  Github,
+  Layers3,
+  Linkedin,
+  Mail,
+  Monitor,
+  Palette,
+  Route,
+  Server,
+  ShieldCheck,
+  Zap,
+  Ruler,
+} from 'lucide-react';
 import ContactForm from './components/ContactForm';
-import CaseStudyModal from './components/CaseStudyModal';
+import CaseStudyPage, { CaseStudyNotFound, caseStudies } from './components/CaseStudyPage';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import ProjectCard from './components/ProjectCard';
 import SectionHeading from './components/SectionHeading';
 import { contactLinks, experienceTimeline, navItems, projectData, techGroups } from './data/siteData';
 
-function App() {
+const techIcons = {
+  monitor: Monitor,
+  palette: Palette,
+  code: Code2,
+  atom: Atom,
+  layers: Layers3,
+  server: Server,
+  route: Route,
+  database: Database,
+  git: GitBranch,
+  shield: ShieldCheck,
+};
+
+const contactIcons = {
+  mail: Mail,
+  linkedin: Linkedin,
+  github: Github,
+};
+
+function NamedIcon({ name, icons }) {
+  const Icon = icons[name];
+  return Icon ? <Icon aria-hidden="true" /> : null;
+}
+
+function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeId, setActiveId] = useState('hero');
-  const [selectedProjectKey, setSelectedProjectKey] = useState(null);
-
-  const selectedProject = projectData.find((project) => project.key === selectedProjectKey) ?? null;
 
   useEffect(() => {
     const revealTargets = document.querySelectorAll('[data-reveal]');
@@ -80,26 +120,6 @@ function App() {
     return () => document.removeEventListener('click', handleDocumentClick);
   }, [menuOpen]);
 
-  useEffect(() => {
-    if (!selectedProject) {
-      document.body.style.overflow = '';
-      return undefined;
-    }
-
-    document.body.style.overflow = 'hidden';
-    const handleEscape = (event) => {
-      if (event.key === 'Escape') {
-        setSelectedProjectKey(null);
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-    return () => {
-      document.body.style.overflow = '';
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [selectedProject]);
-
   const handleLinkClick = (href) => {
     if (href.startsWith('#')) {
       setMenuOpen(false);
@@ -148,28 +168,28 @@ function App() {
 
             <div className="about-values" data-reveal style={{ '--reveal-delay': '100ms' }}>
               <div className="value-item">
-                <div className="value-icon">⚡</div>
+                <div className="value-icon"><Zap aria-hidden="true" /></div>
                 <div className="value-content">
                   <strong>Fast delivery</strong>
                   <p>Ship polished front-end experiences quickly without sacrificing quality or maintainability.</p>
                 </div>
               </div>
               <div className="value-item">
-                <div className="value-icon">♿</div>
+                <div className="value-icon"><Accessibility aria-hidden="true" /></div>
                 <div className="value-content">
                   <strong>Accessible by default</strong>
                   <p>Keyboard-first interfaces, semantic HTML, and ARIA — accessibility is not an afterthought.</p>
                 </div>
               </div>
               <div className="value-item">
-                <div className="value-icon">📐</div>
+                <div className="value-icon"><Ruler aria-hidden="true" /></div>
                 <div className="value-content">
                   <strong>Scalable architecture</strong>
                   <p>Reusable component patterns and clean API design that grow without becoming a burden.</p>
                 </div>
               </div>
               <div className="value-item">
-                <div className="value-icon">🧠</div>
+                <div className="value-icon"><BrainCircuit aria-hidden="true" /></div>
                 <div className="value-content">
                   <strong>Deep problem thinking</strong>
                   <p>I stay in hard problems. I built an ERP from scratch, stepped away when overwhelmed, came back and shipped it.</p>
@@ -195,7 +215,9 @@ function App() {
                 <div className="tech-grid">
                   {group.cards.map((card, cardIndex) => (
                     <article className="tech-card" key={card.name} data-reveal style={{ '--reveal-delay': `${cardIndex * 40 + 40}ms` }}>
-                      <div className="tech-icon">{card.icon}</div>
+                      <div className="tech-icon">
+                        <NamedIcon name={card.icon} icons={techIcons} />
+                      </div>
                       <div className="tech-name">{card.name}</div>
                       <p className="tech-bio">{card.bio}</p>
                     </article>
@@ -222,7 +244,7 @@ function App() {
 
             <div className="projects-grid">
               {projectData.map((project) => (
-                <ProjectCard key={project.key} project={project} onReadMore={setSelectedProjectKey} />
+                <ProjectCard key={project.key} project={project} />
               ))}
             </div>
           </div>
@@ -270,13 +292,9 @@ function App() {
               <div className="contact-links" data-reveal style={{ '--reveal-delay': '180ms' }}>
                 {contactLinks.map((link) => (
                   <a key={link.id} className="contact-link-card" href={link.href} id={link.id} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
-                    <div className="contact-link-icon">{link.icon === 'github' ? (
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z" />
-                      </svg>
-                    ) : (
-                      link.icon
-                    )}</div>
+                    <div className="contact-link-icon">
+                      <NamedIcon name={link.icon} icons={contactIcons} />
+                    </div>
                     <div className="contact-link-body">
                       <span>{link.label}</span>
                       <strong>{link.value}</strong>
@@ -310,8 +328,6 @@ function App() {
         </div>
       </footer>
 
-      <CaseStudyModal project={selectedProject} onClose={() => setSelectedProjectKey(null)} />
-
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           '@context': 'https://schema.org',
@@ -326,6 +342,22 @@ function App() {
       }} />
     </>
   );
+}
+
+function App() {
+  const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+  const caseStudyMatch = pathname.match(/^\/projects\/([^/]+)$/);
+
+  if (caseStudyMatch) {
+    const project = caseStudies.find((item) => item.slug === caseStudyMatch[1]);
+    return project ? <CaseStudyPage project={project} /> : <CaseStudyNotFound />;
+  }
+
+  if (pathname !== '/' && pathname !== '/index.html') {
+    return <CaseStudyNotFound />;
+  }
+
+  return <HomePage />;
 }
 
 export default App;

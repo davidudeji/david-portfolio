@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import portrait from '../../images/myprofile.png';
 
 export default function Hero() {
   const cardRef = useRef(null);
@@ -92,7 +93,7 @@ export default function Hero() {
           <div className="card-3d-scene" aria-hidden="true">
             <div ref={cardRef} className="card-3d">
               <div className="card-3d-shine" />
-              <img className="card-3d-photo" src="/images/myprofile.png" alt="David Udeji portrait" loading="eager" />
+              <img className="card-3d-photo" src={portrait} alt="David Udeji portrait" loading="eager" />
               <div className="card-3d-footer">
                 <p className="card-3d-name">David Udeji</p>
                 <p className="card-3d-title">Software Engineer</p>

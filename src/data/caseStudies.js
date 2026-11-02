@@ -1,0 +1,208 @@
+import centrifugeImage from '../../images/centrifuge-hero.jpg';
+import logisticsImage from '../../images/logistics-invoice.png';
+
+export const caseStudies = [
+  {
+    slug: 'schaid-erp',
+    key: 'schaid-erp',
+    title: 'Schaid ERP',
+    category: 'Education technology',
+    summary: 'A school management platform presented for universities and polytechnics.',
+    role: 'Project contributor',
+    technologies: [],
+    heroImage: null,
+    imageAlt: '',
+    liveUrl: 'https://schaid.vercel.app/',
+    overview:
+      'The Schaid public website describes an ERP platform for African universities and polytechnics. Its product messaging brings admissions, academics, HR, finance, and communication into one institution-focused platform. This summary reflects the public site; implementation details have not been independently verified.',
+    problem: [
+      'The public site positions Schaid around coordinating academic and administrative workflows across higher-education institutions.',
+      'Its product messaging emphasizes connecting institution functions that are often handled through separate processes.',
+    ],
+    requirements: [
+      'The public site presents modules for admissions, academics, HR, finance, and communications.',
+      'The site also describes capabilities including role-based access, course and curriculum management, QR attendance, GPA automation, payment gateways, and mass notifications.',
+      'Treat unverified implementation details, integrations, and outcome metrics as unknown.',
+    ],
+    architecture: [
+      { title: 'Institution users', detail: 'The site targets universities and polytechnics.' },
+      { title: 'Schaid product site', detail: 'Presents the platform and its advertised modules.' },
+      { title: 'Academic and administrative modules', detail: 'Admissions, academics, HR, finance, and communication are described publicly.' },
+      { title: 'Underlying application architecture', detail: 'Not verified from the public product website.' },
+    ],
+    engineeringApproach: [
+      'Review the public product site to identify its intended audience and stated capabilities.',
+      'Describe advertised modules as product messaging rather than independently verified implementation.',
+      'Keep the technology stack and system architecture unspecified until source code or technical documentation can be reviewed.',
+    ],
+    decisions: [
+      { area: 'Product scope', decision: 'Higher-education ERP', reason: 'The public website positions the platform for universities and polytechnics.' },
+      { area: 'Listed capabilities', decision: 'Academic and administrative modules', reason: 'These are described on the public product website; underlying functionality has not been independently tested.' },
+      { area: 'Framework and language', decision: 'Not verified', reason: 'The public website does not establish which frameworks or languages power the application.' },
+      { area: 'Backend and data', decision: 'Not verified', reason: 'No backend, database, or API architecture is confirmed by the public site.' },
+    ],
+    challenges: [
+      {
+        challenge: 'The implementation architecture cannot be confirmed from the public product site alone.',
+        investigation: 'The live site describes product modules and capabilities but does not expose the source code or verified technical documentation.',
+        solution: 'This case study limits technical claims to the published product description and marks the framework and architecture as unverified.',
+        lesson: 'A credible engineering case study separates observed product messaging from source-backed implementation evidence.',
+      },
+    ],
+    results: [
+      'The public website presents Schaid as a school ERP for universities and polytechnics.',
+      'Its marketing content describes academic, administrative, and communication modules.',
+    ],
+    futureImprovements: [
+      'Review the application repository to verify the framework, components, services, and data models.',
+      'Test advertised workflows such as admissions, attendance, and finance in the application.',
+      'Document verified implementation decisions, challenges, and outcomes when source evidence is available.',
+    ],
+    liveUrl: 'https://schaid.vercel.app/',
+  },
+  {
+    slug: 'centrifuge-group',
+    key: 'centrifuge',
+    title: 'Centrifuge Group — Corporate Website Redesign',
+    category: 'Corporate website / frontend engineering',
+    summary: 'A corporate platform that makes Centrifuge Group’s technology services and products easier to understand and explore.',
+    role: 'Frontend Developer',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Express', 'Pinecone'],
+    heroImage: centrifugeImage,
+    imageAlt: 'Centrifuge Group corporate website hero',
+    liveUrl: 'https://centrifugegroup.vercel.app/',
+    overview:
+      'Centrifuge Group offers enterprise software, e-health solutions, cloud services, and logistics technology. I worked on the frontend of its corporate website, organizing the company’s offerings into a structured experience for visitors evaluating its products and services.',
+    problem: [
+      'The company’s broad range of technology offerings needed clearer hierarchy and grouping.',
+      'Visitors needed an intuitive way to navigate between related services and products.',
+      'The interface needed consistent visual patterns and responsive layouts across screen sizes.',
+    ],
+    requirements: [
+      'Present enterprise software, e-health, cloud, and logistics offerings.',
+      'Group related services within an understandable navigation structure.',
+      'Use reusable interface sections and maintain visual consistency.',
+      'Provide clear product discovery and contact pathways.',
+      'Show loading and error feedback for retrieval-assisted product search.',
+    ],
+    architecture: [
+      { title: 'Visitor', detail: 'Browses company services, products, and information.' },
+      { title: 'Navigation and page sections', detail: 'Organize routes and guide product discovery.' },
+      { title: 'Reusable React components', detail: 'Render shared sections and interface patterns.' },
+      { title: 'Content and assets', detail: 'Provide the information and imagery presented on the site.' },
+      { title: 'Search service integration', detail: 'Frontend requests product matches from an Express endpoint backed by Pinecone.' },
+    ],
+    engineeringApproach: [
+      'Organized the experience into page sections such as the hero, services, product details, and contact.',
+      'Built shared section components to reduce repeated layout and styling.',
+      'Used controlled state for navigation menus and closed open menus when users clicked outside the navigation.',
+      'Used TypeScript contracts for structured page content and service responses.',
+      'Connected product search to an Express endpoint and displayed loading and error states in the frontend.',
+    ],
+    decisions: [
+      { area: 'Framework', decision: 'React with Vite', reason: 'Component composition maps to the page sections; Vite provides the development and production build workflow.' },
+      { area: 'Language', decision: 'TypeScript', reason: 'Typed content and service contracts help expose mismatches during development.' },
+      { area: 'Styling', decision: 'Tailwind CSS', reason: 'The project notes describe shared utility conventions for consistent spacing and responsive layouts.' },
+      { area: 'Navigation', decision: 'Custom state-driven dropdowns', reason: 'Controlled state supports explicit open/close behaviour; outside-click handling closes menus when focus moves elsewhere.' },
+      { area: 'Product search', decision: 'Express endpoint with Pinecone', reason: 'An API intermediary keeps the search integration behind the service boundary and returns product results to the UI.' },
+    ],
+    challenges: [
+      {
+        challenge: 'Closing dropdown navigation consistently when visitors click outside it.',
+        investigation: 'The project notes describe blur handling as unreliable for clicks on non-focusable page content.',
+        solution: 'A document-level listener checks whether the click target is inside the navigation and is removed during component cleanup.',
+        lesson: 'Outside-click behaviour should be tied to containment checks and cleaned up with the component lifecycle.',
+      },
+      {
+        challenge: 'Keeping spacing consistent across independently composed page sections.',
+        investigation: 'Different per-section padding values created an inconsistent vertical rhythm.',
+        solution: 'Shared section spacing and design tokens provide common layout defaults.',
+        lesson: 'Global layout rhythm is easier to maintain when it is defined in shared patterns instead of duplicated in each section.',
+      },
+    ],
+    results: [
+      'A corporate site presenting the company’s technology offerings.',
+      'Responsive page layouts and grouped navigation for services and products.',
+      'Reusable page sections and a retrieval-assisted product search interface with visible request states.',
+    ],
+    futureImprovements: [
+      'Add automated accessibility and visual regression checks.',
+      'Improve image delivery and monitor production Core Web Vitals.',
+      'Add analytics to understand how visitors discover services and products.',
+    ],
+    liveUrl: 'https://centrifugegroup.vercel.app/',
+  },
+  {
+    slug: 'logistics-management-system',
+    key: 'logistics-management',
+    title: 'Logistics Management System',
+    category: 'Enterprise application / logistics operations',
+    summary: 'A centralized operations interface for fleet, dispatch, delivery, and invoice workflows.',
+    role: 'Frontend Developer',
+    technologies: ['Angular', 'TypeScript'],
+    heroImage: logisticsImage,
+    imageAlt: 'NexusOps invoice editor with editable billing fields and a live print preview',
+    liveUrl: 'https://logistic-app-neon.vercel.app/',
+    overview:
+      'The Logistics Management System presents operational areas including orders, invoices, loads, dispatch, fleet, drivers, tracking, routes, deliveries, exceptions, carriers, and analytics. The supplied invoice view shows a draft editor paired with a print preview, including customer details, line items, tax settings, payment terms, and a locally saved draft state.',
+    problem: [
+      'Logistics work spans fleet, dispatch, delivery, and finance activities that need to be navigable from one operational interface.',
+      'Users need to inspect and edit invoice details while seeing how the document will print.',
+      'Draft persistence and final invoice issuance have different guarantees: the screenshot explicitly identifies drafts as local and final numbering as requiring a server-backed workflow.',
+    ],
+    requirements: [
+      'Organize logistics functions in clear operational navigation groups.',
+      'Present fleet and dispatch information through dashboard views and data tables.',
+      'Provide map-based operational context as described in the project brief.',
+      'Support invoice editing with a live print preview.',
+      'Distinguish locally saved drafts from server-backed finalization.',
+    ],
+    architecture: [
+      { title: 'Operations user', detail: 'Moves between dispatch, fleet, delivery, finance, and reporting workflows.' },
+      { title: 'Angular application', detail: 'Hosts the navigation and operational views; exact Angular version is not confirmed.' },
+      { title: 'Feature components', detail: 'The project brief describes separate fleet, dispatch table, and map feature areas.' },
+      { title: 'Services and data models', detail: 'The brief identifies service-based data access and a DispatchJob model; exact API contracts are not available.' },
+      { title: 'Data source', detail: 'Backend and live data integrations require verification; invoice drafts shown in the supplied image are stored locally.' },
+    ],
+    engineeringApproach: [
+      'Organize the operational interface into functional areas reflected in the application navigation.',
+      'Keep fleet and dispatch presentation in distinct feature areas, with the map serving as a separate operational view.',
+      'Use typed data models to make dispatch information explicit at the UI boundary, as outlined in the project brief.',
+      'Present invoice entry and print preview together so users can review document output while editing.',
+      'Make persistence limits visible: the supplied invoice UI identifies drafts as local and finalization as a server-backed step.',
+    ],
+    decisions: [
+      { area: 'Framework', decision: 'Angular', reason: 'Identified as the primary frontend technology in the project brief; precise version not independently verified.' },
+      { area: 'Language', decision: 'TypeScript', reason: 'Named in the project brief; exact compiler and package settings are not confirmed.' },
+      { area: 'Feature boundaries', decision: 'Separate fleet, dispatch, and map areas', reason: 'The brief describes these as distinct parts of the operational interface.' },
+      { area: 'Invoice drafts', decision: 'Local draft persistence in the shown flow', reason: 'The supplied screenshot explicitly labels drafts as stored in the browser and notes server-backed finalization as a separate requirement.' },
+      { area: 'Backend and tests', decision: 'Not documented here', reason: 'The available screenshot and project brief do not confirm specific APIs, libraries, or test tools.' },
+    ],
+    challenges: [
+      {
+        challenge: 'Keeping a complex operations platform navigable across many work areas.',
+        investigation: 'The deployed interface groups dashboard, orders, invoices, loads, dispatch, fleet, tracking, routes, delivery, exceptions, carriers, analytics, and settings in the sidebar.',
+        solution: 'The interface uses labelled navigation groups such as Operations, Fleet & Field, Automated Logistics, and Delivery.',
+        lesson: 'Grouping by users’ operational tasks makes a broad feature set easier to scan than one undifferentiated navigation list.',
+      },
+      {
+        challenge: 'Previewing an invoice while editing it, without overstating draft durability.',
+        investigation: 'The supplied invoice screen shows editable invoice fields alongside an A4 print preview and explicitly labels the draft as locally stored.',
+        solution: 'The screen exposes draft status, a print preview, and a note that final numbering and archived PDFs require a server-backed workflow.',
+        lesson: 'Persistence boundaries should be visible in the interface so a local draft is not mistaken for a finalized business record.',
+      },
+    ],
+    results: [
+      'The deployed application provides navigation for logistics operations including fleet, dispatch, delivery, and invoices.',
+      'The supplied invoice view provides an editor and print preview, and communicates the local-draft limitation.',
+      'The project brief identifies map visualization and structured dispatch information as part of the application.',
+    ],
+    futureImprovements: [
+      'Verify fleet, dispatch, map, and invoice data flows against the application source and API.',
+      'Implement and test server-backed invoice finalization, immutable numbering, and archived PDF storage.',
+      'Add automated tests for feature components and service error states.',
+      'Validate map lifecycle and responsive behaviour across supported browsers.',
+    ],
+    liveUrl: 'https://logistic-app-neon.vercel.app/',
+  },
+];

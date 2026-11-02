@@ -1,3 +1,6 @@
+import centrifugeImage from '../../images/centrifuge-hero.jpg';
+import logisticsImage from '../../images/logistics-invoice.png';
+
 export const navItems = [
   { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
@@ -9,78 +12,84 @@ export const navItems = [
 
 export const projectData = [
   {
-    key: 'erp system',
-    tag: 'Business',
-    title: 'An ERP System',
-    image: '/images/main-erp dashboard.PNG',
+    key: 'schaid-erp',
+    slug: 'schaid-erp',
+    tag: 'Education technology',
+    title: 'Schaid ERP',
+    contribution: 'School management platform for higher education',
+    image: null,
     description:
-      'An enterprise resource planning system that handles business operations such as accounting, sales, e-commerce effectively.',
-    technologies: ['Next.js', 'React', 'Node.js', 'TypeScript'],
-    liveUrl: 'https://example.com',
+      'A school ERP platform presented for universities and polytechnics, bringing academic and administrative modules together.',
+    technologies: [],
+    liveUrl: 'https://schaid.vercel.app/',
     caseStudy: {
       challenge: {
         heading:
-          'Building the ERP so multiple businesses can use the same application while ensuring complete data isolation.',
-        body: 'Implemented tenant-based data separation throughout the database and backend logic, ensuring every query and API request is scoped to the correct organization while maintaining a single codebase.',
+          'Bringing academic and administrative workflows into one institution-focused platform.',
+        body: 'The public Schaid site presents admissions, academics, HR, finance, and communication as connected parts of a school ERP for universities and polytechnics.',
       },
       tech: {
-        heading: 'Why Next.js + React + Node',
-        body: 'Next.js gave us server-rendered initial state (critical for SEO on project landing pages) while React\'s fine-grained re-renders made it possible to construct a flexible product UI that remained fast in production.',
+        heading: 'Implementation details are not yet verified',
+        body: 'The public website describes the product and its modules, but the application source and framework dependencies have not been verified. This case study avoids attributing an unconfirmed stack or architecture.',
       },
       lesson: {
         heading:
-          'Creating an interface capable of displaying large amounts of business data while remaining intuitive and performant across desktop and mobile devices.',
-        body: 'Developed a modular dashboard using Next.js, React, Tailwind CSS, and reusable components, incorporating efficient state management, lazy loading, and optimized rendering to improve performance and user experience.',
+          'Separate product messaging from implementation evidence.',
+        body: 'A public product site can communicate intended capabilities, but confirming technical decisions and operational outcomes requires reviewing the application source or verified project documentation.',
       },
     },
   },
   {
-    key: 'Algorithm',
-    tag: 'Algorithm',
-    title: 'Pathfinding Visualizer',
-    image: '/images/path-finding-visualizer.png',
+    key: 'centrifuge',
+    slug: 'centrifuge-group',
+    tag: 'Corporate website',
+    title: 'Centrifuge Group',
+    contribution: 'Frontend development for a corporate platform and product discovery',
+    image: centrifugeImage,
     description:
-      'An interactive visualizer that demonstrates algorithm traversal and shortest-path logic in real time.',
-    technologies: ['React', 'JavaScript', 'Visualization', 'Algorithms'],
-    liveUrl: 'https://example.com',
+      'A corporate website presenting Centrifuge Group’s technology services and products in a clear, navigable experience.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Express', 'Pinecone'],
+    liveUrl: 'https://centrifugegroup.vercel.app/',
     caseStudy: {
       challenge: {
         heading:
-          'Updating hundreds of grid cells during algorithm execution caused unnecessary React re-renders, resulting in laggy animations and poor performance.',
-        body: 'Optimized rendering by memoizing components, using refs where appropriate, and minimizing state updates so only affected cells were updated during visualization.',
+          'Making a broad set of technology offerings understandable and discoverable without overwhelming the main navigation.',
+        body: 'The site groups related services and products, uses reusable page sections, and provides a responsive interface. Its product search connects to an Express endpoint backed by Pinecone; the frontend reports loading and error states.',
       },
       tech: {
-        heading: 'Why React + streaming fetch',
-        body: 'React\'s concurrent rendering meant I could stream text into the DOM without blocking interaction. A custom hook wraps the fetch ReadableStream and feeds tokens into local state — no external state library needed. The choice of vanilla JavaScript over a heavy chat SDK kept the bundle under 80 KB.',
+        heading: 'Why React, TypeScript, and Vite',
+        body: 'React supports reusable page sections, TypeScript provides contracts for content and service responses, and Vite provides the development and production build tooling described for the project.',
       },
       lesson: {
         heading:
-          'Each pathfinding algorithm (such as Dijkstra, A*, BFS, and DFS) has different traversal logic, making it difficult to maintain clean and reusable code.',
-        body: 'Designed a common algorithm interface so each algorithm could share the same visualization pipeline while implementing only its unique search logic. This made it easy to add new algorithms and compare their behavior consistently.',
+          'Keeping navigation predictable while the site contains multiple service areas.',
+        body: 'Dropdown behaviour is managed with controlled state, and an outside-click listener is cleaned up when the component unmounts. Shared section patterns and design tokens also help keep page layouts consistent.',
       },
     },
   },
   {
-    key: 'search engine',
-    tag: 'Search Engine',
-    title: 'Client Search Engine',
-    image: '/images/mini-google-photo.png',
+    key: 'logistics-management',
+    slug: 'logistics-management-system',
+    tag: 'Logistics operations',
+    title: 'Logistics Management System',
+    contribution: 'Frontend for fleet, dispatch, delivery, and invoice workflows',
+    image: logisticsImage,
     description:
-      'A lightweight browser-based search experience built to emulate core search interactions and ranking concepts.',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: 'https://mini-google-search-engine.vercel.app/',
+      'An operations platform bringing fleet visibility, dispatch activity, delivery workflows, and invoice drafting into one interface.',
+    technologies: ['Angular', 'TypeScript'],
+    liveUrl: 'https://logistic-app-neon.vercel.app/',
     caseStudy: {
       challenge: {
-        heading: 'Problem space: TBD',
-        body: 'This project is currently in the research phase and continues to evolve as the search ranking logic is refined.',
+        heading: 'Giving logistics teams a shared view of operational work.',
+        body: 'The application groups fleet, dispatch, delivery, and finance tools into one navigation system. The supplied invoice screen shows an editable invoice beside a live print preview, with drafts saved locally.',
       },
       tech: {
-        heading: 'Early tech choices',
-        body: 'The client search engine is built with HTML, CSS and Javascript.',
+        heading: 'Angular application with TypeScript',
+        body: 'The project brief identifies Angular as the frontend framework and calls out feature components, shared UI, services, and data models. Exact package versions and backend integrations have not been independently confirmed.',
       },
       lesson: {
-        heading: 'Current thinking',
-        body: 'I learned how to use search algorithms like TF-IDF and how to rank search results, inverted indexes, fuzzy string matching and so on.',
+        heading: 'Operational workflows need visible state and useful fallbacks.',
+        body: 'The invoice screen places editable details and the print preview side by side. It also labels local draft behaviour and makes clear that final numbering and archived PDFs require a server-backed workflow.',
       },
     },
   },
@@ -91,27 +100,27 @@ export const techGroups = [
     label: 'Frontend & UI',
     cards: [
       {
-        icon: '🖥️',
+        icon: 'monitor',
         name: 'HTML5',
         bio: 'Semantic markup is the foundation of every interface I build — it keeps the structure readable, accessible, and resilient before design ever enters the picture.',
       },
       {
-        icon: '🎨',
+        icon: 'palette',
         name: 'CSS',
         bio: 'I use CSS for layout systems, depth, motion, and polish — writing maintainable rules that hold up across components and breakpoints.',
       },
       {
-        icon: '⚙️',
+        icon: 'code',
         name: 'JavaScript',
         bio: 'JavaScript is my primary thinking tool for the web — I lean into closures, async/await, and the event loop rather than fighting them. My CS background means I understand why V8 behaves the way it does, which helps me write code that performs.',
       },
       {
-        icon: '⚛️',
+        icon: 'atom',
         name: 'React',
         bio: 'React\'s component model maps cleanly to how I already think about UI — isolated, composable units of state and presentation. I use hooks, context, and the reconciler\'s behaviour to build UIs that are both fast and easy to reason about.',
       },
       {
-        icon: '▲',
+        icon: 'layers',
         name: 'Next.js',
         bio: 'Next.js collapses the frontend-backend boundary in exactly the right way — I get SSR, SSG, and file-based routing with zero config. It\'s my default choice when a project needs SEO, fast initial loads, and a production-grade deployment story out of the box.',
       },
@@ -121,22 +130,22 @@ export const techGroups = [
     label: 'Backend & Database',
     cards: [
       {
-        icon: '🟢',
+        icon: 'server',
         name: 'Node.js',
         bio: 'Node lets me stay in JavaScript all the way through the stack, which reduces context-switching and speeds up full-stack development. Its non-blocking I/O makes it an excellent fit for real-time APIs and data-intensive services.',
       },
       {
-        icon: '🚂',
+        icon: 'route',
         name: 'Express.js',
         bio: 'Express gives me a minimal, unopinionated HTTP layer — I can wire up middleware, routing, and error handling exactly how the project needs, without framework magic obscuring what\'s happening. I\'ve used it for REST APIs, auth flows, and custom proxies.',
       },
       {
-        icon: '🍃',
+        icon: 'database',
         name: 'MongoDB',
         bio: 'MongoDB\'s document model is a great fit when data shapes are fluid or schema evolution is frequent — it lets me move fast in early product stages. I use Mongoose for schema validation so I get the flexibility of NoSQL with the safety of typed models.',
       },
       {
-        icon: '🐘',
+        icon: 'database',
         name: 'PostgreSQL',
         bio: 'When data has real relationships, I reach for PostgreSQL — ACID transactions, foreign keys, and joins give me guarantees that document stores can\'t. My CS background (relational algebra, query optimisation) means I write efficient schemas from day one rather than refactoring later.',
       },
@@ -146,12 +155,12 @@ export const techGroups = [
     label: 'DevOps & Tooling',
     cards: [
       {
-        icon: '🔀',
+        icon: 'git',
         name: 'Git',
         bio: 'I treat Git history as project documentation — atomic commits, meaningful messages, and clean branch strategies make code review fast and rollbacks safe. I\'m comfortable with rebasing, cherry-picking, and resolving complex merge conflicts.',
       },
       {
-        icon: '🔐',
+        icon: 'shield',
         name: 'Authentication',
         bio: 'I implement auth with JWTs and OAuth 2.0 — stateless tokens for APIs, provider flows (Google, GitHub) for consumer apps, and httpOnly cookies for session security. Security is not bolted on at the end; I design auth surfaces before writing a single route handler.',
       },
@@ -183,14 +192,14 @@ export const contactLinks = [
     id: 'email-contact',
     label: 'Email',
     value: 'davidcudeji@gmail.com',
-    icon: '✉️',
+    icon: 'mail',
   },
   {
     href: 'https://www.linkedin.com/in/davidcudeji',
     id: 'linkedin-contact',
     label: 'LinkedIn',
     value: 'linkedin.com/in/davidcudeji',
-    icon: '💼',
+    icon: 'linkedin',
   },
   {
     href: 'https://github.com/DavidUdeji',

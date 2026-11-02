@@ -1,11 +1,21 @@
-export default function ProjectCard({ project, onReadMore }) {
+export default function ProjectCard({ project }) {
   return (
     <article className="project-card" data-reveal style={{ '--reveal-delay': '60ms' }}>
-      <img className="project-cover" src={project.image} alt={project.title} loading="lazy" />
+      <a className="project-cover-link" href={`/projects/${project.slug}`} aria-label={`View ${project.title} case study`}>
+        {project.image ? (
+          <img className="project-cover" src={project.image} alt={project.title} loading="lazy" />
+        ) : (
+          <span className="project-cover-placeholder" aria-hidden="true" />
+        )}
+      </a>
       <div className="project-body">
         <span className="project-tag">{project.tag}</span>
         <h3 className="project-title">{project.title}</h3>
         <p className="project-desc">{project.description}</p>
+        <p className="project-contribution">
+          <span>Contribution</span>
+          {project.contribution}
+        </p>
         <div className="project-pills">
           {project.technologies.map((tech) => (
             <span key={`${project.key}-${tech}`} className="project-pill">
@@ -25,12 +35,12 @@ export default function ProjectCard({ project, onReadMore }) {
           </a>
         )}
 
-        <button className="read-more-btn" type="button" onClick={() => onReadMore(project.key)}>
-          Read More
+        <a className="read-more-btn" href={`/projects/${project.slug}`}>
+          View case study
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
             <path fillRule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clipRule="evenodd" />
           </svg>
-        </button>
+        </a>
       </div>
     </article>
   );

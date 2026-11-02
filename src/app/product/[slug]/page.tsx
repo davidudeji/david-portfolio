@@ -1,7 +1,28 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  AudioLines,
+  Brain,
+  ExternalLink,
+  FileText,
+  Lightbulb,
+  Map,
+  Search,
+  Timer,
+} from "lucide-react";
 import { products } from "@/data/products";
+
+const featureIcons = {
+  fileText: FileText,
+  audioLines: AudioLines,
+  lightbulb: Lightbulb,
+  search: Search,
+  map: Map,
+  brain: Brain,
+  timer: Timer,
+};
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -86,15 +107,19 @@ export default async function ProductDetailPage({ params }: Props) {
           </p>
           <h2 id="features-heading">What Clarity does</h2>
           <div className="product-features-grid">
-            {product.features.map((feature) => (
-              <article className="product-feature-card" key={feature.id} id={`feature-${feature.id}`}>
-                <span className="product-feature-card__icon" aria-hidden="true">
-                  {feature.icon}
-                </span>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </article>
-            ))}
+            {product.features.map((feature) => {
+              const FeatureIcon = featureIcons[feature.icon as keyof typeof featureIcons];
+
+              return (
+                <article className="product-feature-card" key={feature.id} id={`feature-${feature.id}`}>
+                  <span className="product-feature-card__icon" aria-hidden="true">
+                    {FeatureIcon && <FeatureIcon aria-hidden="true" />}
+                  </span>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </article>
+              );
+            })}
           </div>
         </section>
 

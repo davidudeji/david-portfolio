@@ -1,3 +1,5 @@
+import { AlertTriangle, Lightbulb, Wrench } from 'lucide-react';
+
 export default function CaseStudyModal({ project, onClose }) {
   if (!project) return null;
 
@@ -19,19 +21,19 @@ export default function CaseStudyModal({ project, onClose }) {
         <div className="modal-body">
           <div className="case-study">
             <div className="case-study-block challenge">
-              <div className="case-study-icon">⚠️</div>
+              <div className="case-study-icon"><AlertTriangle aria-hidden="true" /></div>
               <div className="case-study-label">The Challenge</div>
               <h4>{project.caseStudy.challenge.heading}</h4>
               <p>{project.caseStudy.challenge.body}</p>
             </div>
             <div className="case-study-block tech">
-              <div className="case-study-icon">🔧</div>
+              <div className="case-study-icon"><Wrench aria-hidden="true" /></div>
               <div className="case-study-label">The Tech Choice</div>
               <h4>{project.caseStudy.tech.heading}</h4>
               <p>{project.caseStudy.tech.body}</p>
             </div>
             <div className="case-study-block lesson">
-              <div className="case-study-icon">💡</div>
+              <div className="case-study-icon"><Lightbulb aria-hidden="true" /></div>
               <div className="case-study-label">Lessons Learned</div>
               <h4>{project.caseStudy.lesson.heading}</h4>
               <p>{project.caseStudy.lesson.body}</p>

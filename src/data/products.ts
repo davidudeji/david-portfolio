@@ -53,49 +53,49 @@ export const products: Product[] = [
         title: "Document ingestion",
         description:
           "Upload PDF and Word documents. View the original or read in clean reflowable mode. Navigate by outline. Track reading position. Detect and flag extraction failures rather than silently serving incomplete text.",
-        icon: "📄",
+        icon: "fileText",
       },
       {
         id: "synchronized-narration",
         title: "Synchronized narration",
         description:
           "Listen while you read with sentence and word-level highlighting, adjustable playback speed, section navigation, and persistent position. Designed to complement reading rather than replace it.",
-        icon: "🔊",
+        icon: "audioLines",
       },
       {
         id: "concept-capture",
         title: "Concept capture",
         description:
           "Select any passage to explain it, record a question, start research, link it to a practical application, or connect it to something you already know — without losing your place in the document.",
-        icon: "💡",
+        icon: "lightbulb",
       },
       {
         id: "research-workspace",
         title: "Research workspace",
         description:
           "Investigate concepts in a persistent research environment linked to the original passage. Every research note, source, and finding stays connected to what triggered it, keeping your reading traceable.",
-        icon: "🔍",
+        icon: "search",
       },
       {
         id: "prerequisite-learning",
         title: "Prerequisite-aware learning",
         description:
           "Clarity analyzes documents and proposes an ordered learning sequence based on the author's structure, prerequisite concepts, and your existing knowledge. You can inspect, override, and reorder any recommendation.",
-        icon: "🗺️",
+        icon: "map",
       },
       {
         id: "understanding-model",
         title: "Understanding model",
         description:
           "The system distinguishes between concepts you've encountered, concepts you can explain, concepts you can recall later, and concepts you can apply. Reviews are driven by evidence of retention — not just reading completion.",
-        icon: "🧠",
+        icon: "brain",
       },
       {
         id: "deep-work-support",
         title: "Deep-work session support",
         description:
           "Start a session with an intention. Capture thoughts that don't belong in the current session. Defer research to a queue. Stay focused on the original objective without losing the stray ideas.",
-        icon: "⏱️",
+        icon: "timer",
       },
     ],
     technologies: [
