@@ -1,5 +1,5 @@
 import centrifugeImage from '../../images/centrifuge-hero.jpg';
-import logisticsImage from '../../images/logistics-invoice.png';
+import logisticsImage from '../../images/logistics-dashboard.png';
 import schaidImage from '../../images/schaid-dashboard.png';
 
 export const navItems = [
@@ -76,7 +76,7 @@ export const projectData = [
     contribution: 'Frontend for fleet, dispatch, delivery, and invoice workflows',
     image: logisticsImage,
     description:
-      'An operations platform bringing fleet visibility, dispatch activity, delivery workflows, and invoice drafting into one interface.',
+      'An operations platform bringing fleet visibility, dispatch activity, delivery workflows, and invoice management into one interface.',
     technologies: ['Angular', 'TypeScript'],
     liveUrl: 'https://logistic-app-neon.vercel.app/',
     caseStudy: {

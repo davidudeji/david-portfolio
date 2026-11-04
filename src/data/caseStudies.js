@@ -1,5 +1,5 @@
 import centrifugeImage from '../../images/centrifuge-hero.jpg';
-import logisticsImage from '../../images/logistics-invoice.png';
+import logisticsImage from '../../images/logistics-dashboard.png';
 import schaidImage from '../../images/schaid-dashboard.png';
 
 export const caseStudies = [
@@ -142,14 +142,14 @@ export const caseStudies = [
     role: 'Frontend Developer',
     technologies: ['Angular', 'TypeScript'],
     heroImage: logisticsImage,
-    imageAlt: 'NexusOps invoice editor with editable billing fields and a live print preview',
+    imageAlt: 'Logistics operations dashboard with fleet map, exception alerts, and active loads',
     liveUrl: 'https://logistic-app-neon.vercel.app/',
     overview:
-      'The Logistics Management System presents operational areas including orders, invoices, loads, dispatch, fleet, drivers, tracking, routes, deliveries, exceptions, carriers, and analytics. The supplied invoice view shows a draft editor paired with a print preview, including customer details, line items, tax settings, payment terms, and a locally saved draft state.',
+      'The Logistics Management System brings orders, invoices, loads, dispatch, fleet, drivers, tracking, routes, deliveries, exceptions, carriers, and analytics into one operations interface. The dashboard screenshot highlights active loads, vehicle and on-time metrics, a fleet map, open exceptions, and an active-loads table. A separate invoice view pairs a draft editor with a print preview.',
     problem: [
       'Logistics work spans fleet, dispatch, delivery, and finance activities that need to be navigable from one operational interface.',
       'Users need to inspect and edit invoice details while seeing how the document will print.',
-      'Draft persistence and final invoice issuance have different guarantees: the screenshot explicitly identifies drafts as local and final numbering as requiring a server-backed workflow.',
+      'Draft persistence and final invoice issuance have different guarantees: the invoice screen identifies drafts as local and final numbering as requiring a server-backed workflow.',
     ],
     requirements: [
       'Organize logistics functions in clear operational navigation groups.',
@@ -176,7 +176,7 @@ export const caseStudies = [
       { area: 'Framework', decision: 'Angular', reason: 'Identified as the primary frontend technology in the project brief; precise version not independently verified.' },
       { area: 'Language', decision: 'TypeScript', reason: 'Named in the project brief; exact compiler and package settings are not confirmed.' },
       { area: 'Feature boundaries', decision: 'Separate fleet, dispatch, and map areas', reason: 'The brief describes these as distinct parts of the operational interface.' },
-      { area: 'Invoice drafts', decision: 'Local draft persistence in the shown flow', reason: 'The supplied screenshot explicitly labels drafts as stored in the browser and notes server-backed finalization as a separate requirement.' },
+      { area: 'Invoice drafts', decision: 'Local draft persistence in the shown flow', reason: 'The invoice screen labels drafts as stored in the browser and notes server-backed finalization as a separate requirement.' },
       { area: 'Backend and tests', decision: 'Not documented here', reason: 'The available screenshot and project brief do not confirm specific APIs, libraries, or test tools.' },
     ],
     challenges: [
@@ -188,14 +188,14 @@ export const caseStudies = [
       },
       {
         challenge: 'Previewing an invoice while editing it, without overstating draft durability.',
-        investigation: 'The supplied invoice screen shows editable invoice fields alongside an A4 print preview and explicitly labels the draft as locally stored.',
+        investigation: 'The invoice screen shows editable invoice fields alongside an A4 print preview and explicitly labels the draft as locally stored.',
         solution: 'The screen exposes draft status, a print preview, and a note that final numbering and archived PDFs require a server-backed workflow.',
         lesson: 'Persistence boundaries should be visible in the interface so a local draft is not mistaken for a finalized business record.',
       },
     ],
     results: [
       'The deployed application provides navigation for logistics operations including fleet, dispatch, delivery, and invoices.',
-      'The supplied invoice view provides an editor and print preview, and communicates the local-draft limitation.',
+      'The invoice view provides an editor and print preview, and communicates the local-draft limitation.',
       'The project brief identifies map visualization and structured dispatch information as part of the application.',
     ],
     futureImprovements: [
